@@ -48,9 +48,11 @@
 									</td>
 									<td>${bookVO.category}</td>
 									<td><fmt:formatNumber value='${bookVO.price}'
-											pattern='#,###' /></td>
+											pattern='#,###' />
+									</td>
 									<td><fmt:formatDate value='${bookVO.insertDate}'
-											pattern='yyyy-MM-dd' /></td>
+											pattern='yyyy-MM-dd' />
+									</td>
 								</tr>
 							</c:forEach>
 						</tbody>

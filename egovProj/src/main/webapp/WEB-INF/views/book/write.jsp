@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <script type="text/javascript" src="/resources/js/jquery-3.6.0.js"></script>
+<script type="text/javascript" src="/resources/ckeditor/ckeditor.js"></script>
 <!-- JSTL format을 이용하여 천단위 구분기호를 적용할 수 있음 -->
 <!-- JSTL format을 이용하여 날짜 포맷을 적용할 수 있음 -->
 <div class="col-md-6" style="width: 100%;">
@@ -45,6 +46,14 @@
 				</div>
 
 				<div class="form-group">
+					<label>책 내용:</label>
+					<div class="input-group">
+						<textarea id="content" name="content" class="form-control"
+							rows="4" style="height: 124px;" readonly>${bookVO.content}</textarea>
+					</div>
+				</div>
+				
+				<div class="form-group">
 					<label>입력일자:</label>
 					<div class="input-group">
 						<input type="text" class="form-control"
@@ -52,15 +61,7 @@
 							readonly />
 					</div>
 				</div>
-
-				<div class="form-group">
-					<label>내용:</label>
-					<div class="input-group">
-						<textarea id="content" name="content" class="form-control"
-							rows="4" style="height: 124px;">${bookVO.content}</textarea>
-					</div>
-				</div>
-
+				
 			</div>
 			<!-- 일반모드 시작 -->
 			<div id="spn1" class="card-footer">
@@ -101,6 +102,8 @@
 			$(".rounded-0").removeAttr("readOnly");
 			//제목, 카테고리, 가격의 required 속성 추가
 			$(".rounded-0").attr("required", true);
+			//책 내용 처리
+			CKEDITOR.instances['content'].setReadOnly(false);
 			//form action 추가
 			$("#frm").attr("action", "/book/updatePost");
 		});
@@ -110,4 +113,7 @@
 			$(this).val($(this).val().replace(/[^0-9]/g, ""));
 		});
 	});
+</script>
+<script type="text/javascript" >
+  CKEDITOR.replace("content");
 </script>

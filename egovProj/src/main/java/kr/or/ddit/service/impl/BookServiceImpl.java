@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.or.ddit.mapper.BookMapper;
-import kr.or.ddit.service.BookServiece;
+import kr.or.ddit.service.BookService;
 import kr.or.ddit.vo.BookVO;
 
 @Service
-public class BookServiceImpl implements BookServiece{
+public class BookServiceImpl implements BookService{
 
 	@Autowired
 	BookMapper bookMapper;

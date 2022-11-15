@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.or.ddit.service.BookServiece;
+import kr.or.ddit.service.BookService;
 import kr.or.ddit.vo.BookVO;
 import lombok.extern.slf4j.Slf4j;
 import oracle.jdbc.proxy.annotation.Post;
@@ -22,7 +22,7 @@ import oracle.jdbc.proxy.annotation.Post;
 public class BookController {
 
 	@Autowired
-	BookServiece bookService;
+	BookService bookService;
 	
 	@GetMapping("/list")
 	public String list(Model model) {
