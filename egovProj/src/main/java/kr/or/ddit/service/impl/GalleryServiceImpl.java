@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import kr.or.ddit.mapper.GalleryMapper;
 import kr.or.ddit.service.GalleryService;
+import kr.or.ddit.vo.AttachVO;
 import kr.or.ddit.vo.BookVO;
 
 @Service
@@ -26,5 +27,15 @@ public class GalleryServiceImpl implements GalleryService{
 	public List<BookVO> bookList(){
 		return this.galleryMapper.bookList();
 	}
+	//변경된 사진 db에 반영
+	@Override
+	public int updatePost(AttachVO attachVO) {
+		return this.galleryMapper.updatePost(attachVO);
+	}
 
+	//이미지 삭제
+	@Override
+	public int deletePost(AttachVO attachVO) {
+		return this.galleryMapper.deletePost(attachVO);
+	}
 }
