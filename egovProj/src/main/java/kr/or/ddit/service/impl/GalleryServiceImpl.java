@@ -38,4 +38,10 @@ public class GalleryServiceImpl implements GalleryService{
 	public int deletePost(AttachVO attachVO) {
 		return this.galleryMapper.deletePost(attachVO);
 	}
+	
+	//도서 검색
+	public List<BookVO> searchBook(BookVO bookVO) {
+		return this.galleryMapper.searchBook(bookVO);
+	}
+	
 }

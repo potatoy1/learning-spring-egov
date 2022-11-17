@@ -18,4 +18,7 @@ public interface GalleryMapper {
 	
 	//이미지 삭제
 	public int deletePost(AttachVO attachVO);
+	
+	//도서 검색
+	public List<BookVO> searchBook(BookVO bookVO);
 }

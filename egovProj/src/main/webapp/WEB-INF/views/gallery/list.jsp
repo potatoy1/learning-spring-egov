@@ -49,8 +49,8 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h4 class="modal-title"></h4>
-				<input type="text" id="txtUserNo" value="" />
-				<input type="text" id="txtSeq" value="" />
+				<input type="hidden" id="txtUserNo" value="" />
+				<input type="hidden" id="txtSeq" value="" />
 				<button type="button" class="close" data-dismiss="modal"
 					aria-label="Close">
 					<span aria-hidden="true">×</span>
@@ -296,13 +296,14 @@
 				type:"post",
 				success:function(result){
 					console.log("result: " + JSON.stringify(result))
+					//1 또는 0이 str변수에 할당됨
+					let str = result.result;
 					//result가 0보다 크면 성공, 아니면 실패.
 					//성공 시 : /gallery/list?bookId=3 / 실패 시: 실패 메시지 alert
-					if(result >0) {
-						userNo.removeAttribute("userno");
-						return "redirect:/gallery/list?bookId=${param.bookId}";
+					if(str>0){
+						location.href="/gallery/list?bookId=${param.bookId}"
 					}else{
-						alert("삭제 실패");
+						alert("삭제가 되지 않았습니다.");
 					}
 					
 				}

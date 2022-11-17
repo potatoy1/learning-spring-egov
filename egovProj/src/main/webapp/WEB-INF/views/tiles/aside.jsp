@@ -93,7 +93,7 @@
 								<i class="far fa-circle nav-icon"></i>
 								<p>이미지목록</p>
 						</a></li>
-						<li class="nav-item"><a href="/gallery/list" class="nav-link">
+						<li class="nav-item"><a href="/gallery/regist" class="nav-link">
 								<i class="far fa-circle nav-icon"></i>
 								<p>이미지등록</p>
 						</a></li>

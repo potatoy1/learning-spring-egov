@@ -18,5 +18,5 @@ public interface BookService {
 
 	//도서 등록
 	public int insertPost(BookVO bookVO);
-
+	
 }
