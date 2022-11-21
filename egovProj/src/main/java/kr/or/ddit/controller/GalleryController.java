@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -211,6 +212,7 @@ public class GalleryController {
 	//이미지 다중 등록
 	//요청URI : /gallery/regist
 	//방식 : get
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_MEMBER')")
 	@GetMapping("/regist")
 	public String regist(Model model) {
 		//공통 약속

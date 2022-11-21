@@ -104,12 +104,6 @@
 
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-12">
-			<a href="#" class="btn btn-secondary">Cancel</a> <input type="submit"
-				value="Create new Project" class="btn btn-success float-right">
-		</div>
-	</div>
 </section>
 <!-- 책 검색 모달 시작 -->
 <div class="modal fade" id="modal-lg" style="display: none;"
@@ -299,7 +293,11 @@
 			
 			let data = {"title":str};
 			console.log("data : " + JSON.stringify(str));
+			//스프링 시큐리티를 위한 토큰 처리(csrt)->불토엔 큰 코스로 픽스!
+			let header="${_csrf.headerName}";
+			let token ="${_csrf.token}";
 			
+			console.log("header: " + header + ", token : " + token);
 			//아작났어유..피씨다타써
 			//contentType : 가즈아
 			//dataType : 드루와
@@ -309,6 +307,9 @@
 				data:JSON.stringify(data),
 				dataType:"json",
 				type:"post",
+				beforeSend:function(xhr){
+					xhr.setRequestHeader(header,token);
+				},
 				success:function(result){
 //	 				console.log("result : " + JSON.stringify(result));
 					//전역 변수에 넣음

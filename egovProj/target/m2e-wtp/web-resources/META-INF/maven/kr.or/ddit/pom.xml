@@ -266,7 +266,7 @@
 			<version>5.2.5.Final</version>
 		</dependency>
 
-		<!-- 입력값을 검증하기 위한 라이브러리 의존 관계 정의 끝 -->
+		<!-- 입력값을 검증하기 위한 라이브러리 의존 관계 정의 시작 -->
 
 		<!-- 스프링 시큐리티 라이브러리 의존관계 정의 시작 -->
 		<!-- 스프링 시큐리티를 웹에서 동작하도록 해줌 -->
@@ -285,7 +285,11 @@
 			<version>5.0.7.RELEASE</version>
 		</dependency>
 
-		<!-- 스프링 시큐리티 일반 기능 -->
+		<!-- 스프링 시큐리티 일반 기능 
+		1)인증(authentication) : 로그인
+		2)인가(authorization) : 권한(role) 
+		-CSRF(Cross-site request forgery(위조))토큰
+		-->
 		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
@@ -301,7 +305,7 @@
 			<version>5.0.7.RELEASE</version>
 		</dependency>
 
-		<!-- 스프링 시큐리티 라이브러리 의존관계 정의 시작 -->
+		<!-- 스프링 시큐리티 라이브러리 의존관계 정의 끝 -->
 
 		<!-- AOP(Aspect Oriented Programming : 관점 지향 프로그래밍) 시작 1) aspectjrt => 
 			이미 있으므로 생략 2) aspectjweaver => 없으므로 의존 관계를 정의 -->
