@@ -71,10 +71,13 @@ public class BookController {
 	public String updatePost(@ModelAttribute BookVO bookVO) {
 		log.info("bookVO : " + bookVO.toString());
 
-		int result = this.bookService.updatePost(bookVO);
+		//merge into에 의해 bookId가 변경될것이므로 미리 bookId를 받아놓자
+		int bookId = bookVO.getBookId();
+		//updatePost(bookVO) -> insertPost(bookVO)
+		int result = this.bookService.insertPost(bookVO);
 		log.info("result :"  + result);
 		
-		return "redirect:/book/detail?bookId="+bookVO.getBookId();
+		return "redirect:/book/detail?bookId="+bookId;
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")

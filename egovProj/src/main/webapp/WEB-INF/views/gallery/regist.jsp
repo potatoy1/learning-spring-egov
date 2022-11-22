@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 <script type="text/javascript" src="/resources/ckeditor/ckeditor.js"></script>
 <script type="text/javascript" src="/resources/js/jquery-3.6.0.js"></script>
 <script src="/resources/sweetalert2/sweetalert2.min.js"></script>
@@ -249,6 +250,9 @@
 			*/
 			
 			formData.append("bookId",bookId);
+			//스프링 시큐리티를 위한 토큰 처리(csrf)->불토엔 큰 코스로 픽스!
+			let header="${_csrf.headerName}";
+			let token ="${_csrf.token}";
 			
 			//아작났어유..피씨다타써
 			//dataType: 응답 데이터 타입
@@ -262,6 +266,9 @@
 				data:formData,
 				dataType:"json",
 				type:"post",
+				beforeSend:function(xhr){
+					xhr.setRequestHeader(header,token);
+				},
 				success:function(result){
 					console.log("result: " + JSON.stringify(result));
 					
