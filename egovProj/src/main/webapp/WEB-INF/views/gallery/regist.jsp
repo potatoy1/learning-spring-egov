@@ -195,27 +195,27 @@
 			let fileArr = Array.prototype.slice.call(files);
 			
 			//f : 각각의 이미지 파일
-			fileArr.forEach(function(f){
-				//이미지가 아니면
-				if(!f.type.match("image.*")){
-					alert("이미지 확장자만 가능합니다.");
-					//함수 종료
-					return;
-				}
-				//이미지를 배열에 넣음
-				sel_file.push(f);
-				//이미지를 읽어보자
-				let reader = new FileReader();
-				//e: 리더가 이미지 읽을 때 그 이벤트
-				reader.onload = function(e){
-					//e.target : 이미지 객체
-					let img_html = "<img src=\"" + e.target.result + "\" style='width:50%;' />";
-					//객체.append : 누적, .html : 새로고침, innerHTML : J/S
-					$("#card-images").append(img_html);
-				}
-				//다음 이미지 파일(f)를 위해 리더를 초기화
-				reader.readAsDataURL(f);
-			});
+// 			fileArr.forEach(function(f){
+// 				//이미지가 아니면
+// 				if(!f.type.match("image.*")){
+// 					alert("이미지 확장자만 가능합니다.");
+// 					//함수 종료
+// 					return;
+// 				}
+// 				//이미지를 배열에 넣음
+// 				sel_file.push(f);
+// 				//이미지를 읽어보자
+// 				let reader = new FileReader();
+// 				//e: 리더가 이미지 읽을 때 그 이벤트
+// 				reader.onload = function(e){
+// 					//e.target : 이미지 객체
+// 					let img_html = "<img src=\"" + e.target.result + "\" style='width:50%;' />";
+// 					//객체.append : 누적, .html : 새로고침, innerHTML : J/S
+// 					$("#card-images").append(img_html);
+// 				}
+// 				//다음 이미지 파일(f)를 위해 리더를 초기화
+// 				reader.readAsDataURL(f);
+// 			});
 		}
 		//이미지 미리보기 끝//////////////////////////////////////
 		
